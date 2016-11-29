@@ -1,6 +1,6 @@
 class Main
 
-  def execute
+  def self.execute
     files = Reader.new("inputs")
     process_files(files)
   end
@@ -12,14 +12,14 @@ class Main
   end
 
   def process_products(file)
-    @order = Order.new
+    order = Order.new
     file.each do |line|
       product = Product.new(line)
       populated_product = ProductSetter.perform(product)
       taxed_product = SalesTax::Context.apply_tax(populated_product)
       @order.add(taxed_product)
     end
-    generate(@order)
+    generate(order)
   end
 
   def generate(order)
