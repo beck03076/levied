@@ -16,8 +16,9 @@ module SalesTax
       @imported = imported
     end
 
-    def calculate
-      (price + tax_amount).round(2)
+    def calculate(&block)
+      taxed_price = (price + tax_amount).round(2)
+      block.call(tax_amount, taxed_price)
     end
 
     def tax_amount

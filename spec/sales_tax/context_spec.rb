@@ -11,22 +11,22 @@ describe SalesTax::Context do
   describe '.calculate no imported products' do
     it 'does not add any tax for book' do
       context = SalesTax::Context.new(book)
-      expect(context.calculate).to eq(12.49)
+      expect(context.calculate[:taxed_price]).to eq(12.49)
     end
 
     it 'does not add any tax for food' do
       context = SalesTax::Context.new(food)
-      expect(context.calculate).to eq(0.85)
+      expect(context.calculate[:taxed_price]).to eq(0.85)
     end
 
     it 'does not add any tax for medical' do
       context = SalesTax::Context.new(medical)
-      expect(context.calculate).to eq(9.75)
+      expect(context.calculate[:taxed_price]).to eq(9.75)
     end
 
     it 'adds 10% tax for other products' do
       context = SalesTax::Context.new(other)
-      expect(context.calculate).to eq(16.49)
+      expect(context.calculate[:taxed_price]).to eq(16.49)
     end
 
   end
@@ -39,22 +39,22 @@ describe SalesTax::Context do
   describe '.calculate imported products' do
     it 'does not add any tax for book' do
       context = SalesTax::Context.new(imported_book)
-      expect(context.calculate).to eq(13.14)
+      expect(context.calculate[:taxed_price]).to eq(13.14)
     end
 
     it 'does not add any tax for food' do
       context = SalesTax::Context.new(imported_food)
-      expect(context.calculate).to eq(11.85)
+      expect(context.calculate[:taxed_price]).to eq(11.85)
     end
 
     it 'does not add any tax for medical' do
       context = SalesTax::Context.new(imported_medical)
-      expect(context.calculate).to eq(10.25)
+      expect(context.calculate[:taxed_price]).to eq(10.25)
     end
 
     it 'adds 10% tax for other products' do
       context = SalesTax::Context.new(imported_other)
-      expect(context.calculate).to eq(32.19)
+      expect(context.calculate[:taxed_price]).to eq(32.19)
     end
   end
 end
