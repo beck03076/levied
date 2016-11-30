@@ -7,9 +7,7 @@ SimpleCov.start
 FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
 FactoryGirl.find_definitions
 
-
 RSpec.configure do |config|
-
   config.include FactoryGirl::Syntax::Methods
 
   config.expect_with :rspec do |expectations|
@@ -21,5 +19,4 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
 end

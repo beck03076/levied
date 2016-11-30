@@ -3,7 +3,7 @@ require 'product'
 
 describe Product do
   describe '.new' do
-    let(:product1) { build(:product, name: "ok", price: 1.0, type: :other, imported: false) }
+    let(:product1) { build(:product, name: 'ok', price: 1.0, type: :other, imported: false) }
 
     it 'creates a product object in the right format' do
       expect(product1.name).to eq('ok')
@@ -14,9 +14,8 @@ describe Product do
     end
 
     it 'creating an invalid product raises exception' do
-      expect{ Product.new({name: true, price: true, type: true, imported: true}) }.
-        to raise_exception InvalidProduct
+      expect { Product.new(name: true, price: true, type: true, imported: true) }
+        .to raise_exception InvalidProduct
     end
-
   end
 end

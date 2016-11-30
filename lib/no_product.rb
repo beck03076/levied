@@ -5,7 +5,7 @@
 # @see https://en.wikipedia.org/wiki/Null_Object_pattern
 class NoProduct
   NAME = 'this is a default name'.freeze
-  PRICE = 0.0.freeze
+  PRICE = 0.0
   TYPE = :other
   IMPORTED = true
   SALES_TAX = 0.0
@@ -34,6 +34,4 @@ class NoProduct
   def sales_tax
     SALES_TAX
   end
-
 end
-

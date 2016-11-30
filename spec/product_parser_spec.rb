@@ -2,18 +2,17 @@ require 'spec_helper'
 require 'product_parser'
 
 describe ProductParser do
-
   let(:food) { build(:food, price: 0.85, type: :nothing, imported: false) }
-  let(:imported_food) { build(:food, name: "imported chocolate packets", type: :nothing, imported: false) }
+  let(:imported_food) { build(:food, name: 'imported chocolate packets', type: :nothing, imported: false) }
 
-  let(:book) { build(:product, name: "book of titans") }
-  let(:imported_book) { build(:product, name: "book of titans, imported from australia") }
+  let(:book) { build(:product, name: 'book of titans') }
+  let(:imported_book) { build(:product, name: 'book of titans, imported from australia') }
 
-  let(:medical) { build(:product, name: "throat infection pills") }
-  let(:imported_medical) { build(:product, name: "imported headache pills") }
+  let(:medical) { build(:product, name: 'throat infection pills') }
+  let(:imported_medical) { build(:product, name: 'imported headache pills') }
 
-  let(:other) { build(:product, name: "total non sense as a product") }
-  let(:imported_other) { build(:product, name: "imported nonsense as a product") }
+  let(:other) { build(:product, name: 'total non sense as a product') }
+  let(:imported_other) { build(:product, name: 'imported nonsense as a product') }
 
   describe '.perform' do
     context 'sets type and imported' do
@@ -60,4 +59,3 @@ describe ProductParser do
     end
   end
 end
-

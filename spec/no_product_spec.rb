@@ -13,4 +13,3 @@ describe NoProduct do
     end
   end
 end
-

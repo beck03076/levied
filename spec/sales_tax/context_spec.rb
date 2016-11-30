@@ -2,11 +2,17 @@ require 'spec_helper'
 require 'sales_tax/context'
 
 describe SalesTax::Context do
-
   let(:food) { build(:food, price: 0.85) }
   let(:book) { build(:book, price: 12.49) }
   let(:medical) { build(:medical, price: 9.75) }
   let(:other) { build(:other, price: 14.99) }
+
+  describe '.new' do
+    it 'initializes with a NoProduct without args' do
+      expect { SalesTax::Context.new }.
+        to_not raise_error
+    end
+  end
 
   describe '.apply_tax' do
     it 'sets the value of sales_tax and taxed_price' do
@@ -36,7 +42,6 @@ describe SalesTax::Context do
       context = SalesTax::Context.new(other)
       expect(context.calculate[:taxed_price]).to eq(16.49)
     end
-
   end
 
   let(:imported_food) { build(:food, imported: true, price: 11.25) }
@@ -66,4 +71,3 @@ describe SalesTax::Context do
     end
   end
 end
-

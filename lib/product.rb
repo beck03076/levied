@@ -1,10 +1,13 @@
 require_relative 'error'
-
+# Class to create a valid product with all the right attributes
 class Product
-
   attr_accessor :name, :price, :type, :imported, :sales_tax, :taxed_price
 
-  def initialize opts
+  # Initializes a product
+  #
+  # @param opts [Hash]
+  # @return [Product]
+  def initialize(opts)
     opts[:type] ||= :other
     opts[:imported] ||= false
     opts[:sales_tax] ||= 0.0
@@ -17,13 +20,17 @@ class Product
     validate_product!
   end
 
+  # validates a product
+  #
+  # @raise [InvalidProduct] raises an exception is attributes
+  # are of wrong type
   def validate_product!
-    unless @name.is_a?(String) && @price.is_a?(Float) &&
+    if @name.is_a?(String) && @price.is_a?(Float) &&
         @type.is_a?(Symbol) && !!@imported == @imported &&
         @sales_tax.is_a?(Float) && @taxed_price.is_a?(Float)
-      raise InvalidProduct, "Some attributes of this product are invalid"
-    else
       true
+    else
+      raise InvalidProduct, 'Some attributes of this product are invalid'
     end
   end
   alias valid? validate_product!

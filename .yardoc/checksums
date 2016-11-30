@@ -1,0 +1,12 @@
+lib/error.rb 3bdbb5f47b91aff218f1226f8c63e4803f01a68e
+lib/order.rb 4b9a9a64d379bb23d2df0f4fe0eaec8170480efd
+lib/receipt.rb f8b8557673a13fb01040d931fd1b47922300a86c
+lib/product.rb e421d0773fc1313935fe085e17fe631134ea63cd
+lib/no_product.rb 0546fde5b5aaaa23fc65c96873dc176f6b66e7c0
+lib/identifiers.rb 4232829520e1263378e9a13c645b33638df6a78c
+lib/product_parser.rb f426c8d2d96e4d6e548d5a00aa06a7750e733f36
+lib/sales_tax/rules.rb 5a3b76f1ad3ccfd0024bc28569f5a9d88831f481
+lib/sales_tax/values.rb 21d147f7397f62d1ea1b2ade7d4a6d1d12f153cc
+lib/core_ext/numeric.rb bcaccdec521186d3a38d3d02fb56ff61d9a512bd
+lib/sales_tax/context.rb 87b174530cc5c59ec583e1539724f3f532ed9123
+lib/sales_tax/calculator.rb ee2092dcb874fb1a8036544451e9f6cb8dbf1a8d

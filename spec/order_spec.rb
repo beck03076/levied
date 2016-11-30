@@ -1,22 +1,20 @@
 require 'spec_helper'
 require 'order'
 
-
 describe Order do
-  let(:product1) { build(:product, name: "ok", price: 1.0, type: :other, imported: false) }
-  let(:product2) { build(:product, name: "ok", price: 45.0, type: :other, imported: false, sales_tax: 7.0, taxed_price: 52.0) }
+  let(:product1) { build(:product, name: 'ok', price: 1.0, type: :other, imported: false) }
+  let(:product2) { build(:product, name: 'ok', price: 45.0, type: :other, imported: false, sales_tax: 7.0, taxed_price: 52.0) }
   before do
     @order = Order.new
   end
 
   describe '.new' do
-
     it 'creates an order with empty items' do
       expect(@order.items).to be_empty
     end
 
     it 'raises exception if added items are not products' do
-      expect { @order.add(1,"dummmy") }
+      expect { @order.add(1, 'dummmy') }
         .to raise_exception InvalidOrderItem
     end
 
@@ -26,7 +24,6 @@ describe Order do
       expect(@order.items.first[:quantity]).to eq(2)
       expect(@order.items.first[:product]).to be_kind_of(Product)
     end
-
   end
 
   describe '.sales_taxes' do
@@ -44,5 +41,4 @@ describe Order do
       expect(@order.total).to eq(312.0)
     end
   end
-
 end

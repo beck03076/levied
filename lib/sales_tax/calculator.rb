@@ -3,24 +3,32 @@ require_relative 'rules'
 require_relative '../core_ext/numeric'
 
 module SalesTax
+  # Separate concern to calculate the sales tax
+  # here lies the strategy
   class Calculator
-
     include SalesTax::Values
     include SalesTax::Rules
 
     attr_reader :price, :type, :imported
 
+    # Initializes a calculator object
+    #
+    # @param price [Float]
+    # @param type [Symbol]
+    # @param imported [Boolean]
     def initialize(price, type, imported)
       @price = price
       @type = type
       @imported = imported
     end
 
-    def calculate(&block)
+    # @return [Block]
+    def calculate
       taxed_price = (price + tax_amount).round(2)
-      block.call(tax_amount, taxed_price)
+      yield(tax_amount, taxed_price)
     end
 
+    # returns the rounded tax_amount
     def tax_amount
       rounded(tax.percent_of(price))
     end
@@ -39,4 +47,3 @@ module SalesTax
     end
   end
 end
-

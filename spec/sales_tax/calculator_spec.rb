@@ -2,9 +2,8 @@ require 'spec_helper'
 require 'sales_tax/calculator'
 
 describe SalesTax::Calculator do
-
   before do
-    @calculator = SalesTax::Calculator.new(9.0,:book, true)
+    @calculator = SalesTax::Calculator.new(9.0, :book, true)
   end
 
   describe '.new' do
@@ -31,4 +30,3 @@ describe SalesTax::Calculator do
     end
   end
 end
-
