@@ -8,6 +8,14 @@ describe SalesTax::Context do
   let(:medical) { build(:medical, price: 9.75) }
   let(:other) { build(:other, price: 14.99) }
 
+  describe '.apply_tax' do
+    it 'sets the value of sales_tax and taxed_price' do
+      product = SalesTax::Context.apply_tax(book)
+      expect(product.sales_tax).to eq(0.0)
+      expect(product.taxed_price).to eq(12.49)
+    end
+  end
+
   describe '.calculate no imported products' do
     it 'does not add any tax for book' do
       context = SalesTax::Context.new(book)

@@ -5,8 +5,8 @@ class Product
   attr_accessor :name, :price, :type, :imported, :sales_tax, :taxed_price
 
   def initialize opts
-    opts[:type] = :other
-    opts[:imported] = false
+    opts[:type] ||= :other
+    opts[:imported] ||= false
     opts[:sales_tax] ||= 0.0
     opts[:taxed_price] ||= 0.0
 

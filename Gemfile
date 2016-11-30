@@ -11,3 +11,5 @@ group :development do
   gem 'factory_girl'
   gem 'simplecov'
 end
+
+gem 'rubocop'

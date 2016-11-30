@@ -2,10 +2,11 @@ require 'simplecov'
 require 'factory_girl'
 require 'byebug'
 
+SimpleCov.start
+
 FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
 FactoryGirl.find_definitions
 
-SimpleCov.start 'rails'
 
 RSpec.configure do |config|
 
